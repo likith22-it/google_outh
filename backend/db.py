@@ -9,7 +9,10 @@ def create_table():
 
     cursor.execute("""
                CREATE TABLE IF NOT EXISTS users(
-               id INTEGER PRIMARY KEY AUTOINCREMENT,email TEXT UNIQUE,password TEXT,google_id TEXT)""")
+               id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT UNIQUE, google_id TEXT)""")
+
+    conn.commit()
+    conn.close()
 
 def insert_user(email, google_id):
     conn = get_db()
